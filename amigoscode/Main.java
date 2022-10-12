@@ -4,14 +4,14 @@ public class Main {
     public static void main(String[] args) {
         // staticMethods();
         // metodoOrElse();
-        // pru3();
+        pru3();
         // pru4();
         // pru5();
-        pru6();
+        // pru6();
     }
 
     public static void showMe(String title, Optional<?> optObj) {
-        System.out.println("\n" + title + "\n");
+        System.out.println("\n\n" + title + "\n");
         // Estamos usando el método toString() de la clase Optional.
         System.out.println("optObj: " + optObj);
         System.out.println("optObj.isPresent(): " + optObj.isPresent());
@@ -31,9 +31,21 @@ public class Main {
     }
 
     public static void metodoOrElse() {
+        /**
+         * No hay problema, porque estoy realmente pasando un valor no null.
+         * Como era de esperar, simplemente imprime "Hola"
+         */
         System.out.println(Optional.of("Hola").orElse("Chau"));
-        // System.out.println(Optional.of(null).orElse("Chau"));//NullPointerException
-        System.out.println(Optional.ofNullable(null).orElse("Chau"));// NullPointerException
+        /**
+         * Ahora le paso un argumento null. Me da NullPointerException.
+         * O sea que no le puedo pasar un argumento null a este método.
+         */
+        // System.out.println(Optional.of(null).orElse("Chau"));
+        /**
+         * Ahora le paso un argumento null, pero este método sí lo admite.
+         * No hay problema. Como era de esperar, imprime "Chau".
+         */
+        System.out.println(Optional.ofNullable(null).orElse("Chau"));
     }
 
     public static void pru3() {
